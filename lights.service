@@ -1,0 +1,11 @@
+[Unit]
+Description=light server for alexa
+after=network.target
+
+[Service]
+User=root
+ExecStart=/usr/bin/python /home/pi/lightserver.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -18,21 +18,23 @@ class KlikAanKlikUit():
         self.address = address
 
     def lampOn(self, unit):
-        self._sendStartPulse()
-        self._sendAddress(self.address)
-        self._sendBit(0)
-        self._sendBit(1)
-        self._sendUnit(unit)
-        self._sendStopPulse()
+        for i in range(5):
+            self._sendStartPulse()
+            self._sendAddress(self.address)
+            self._sendBit(0)
+            self._sendBit(1)
+            self._sendUnit(unit)
+            self._sendStopPulse()
 
 
     def lampOff(self, unit):
-        self._sendStartPulse()
-        self._sendAddress(self.address)
-        self._sendBit(0)
-        self._sendBit(0)
-        self._sendUnit(unit)
-        self._sendStopPulse()
+        for i in range(5):
+            self._sendStartPulse()
+            self._sendAddress(self.address)
+            self._sendBit(0)
+            self._sendBit(0)
+            self._sendUnit(unit)
+            self._sendStopPulse()
 
     def _sendStartPulse(self):
         GPIO.output(self.PIN, GPIO.HIGH)

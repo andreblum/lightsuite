@@ -1,0 +1,13 @@
+[Unit]
+Description=fauxmo light server for alexa
+Requires=lights.service
+After=network.target lights.service
+
+[Service]
+User=root
+WorkingDirectory=/home/pi/
+ExecStart=/usr/bin/python /home/pi/fauxmo.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
